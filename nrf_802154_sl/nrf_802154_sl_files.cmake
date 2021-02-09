@@ -15,20 +15,20 @@ set(NRF_802154_SL_OPENSOURCE_INCLUDE_DIRS
 )
 
 set(NRF_802154_SL_SOURCES_NRF52_PLATFORM_BAREMETAL
-    ${NRF_802154_SL_ROOT}/src/platform/gpiote/nrf_802154_gpiote_none.c
-    ${NRF_802154_SL_ROOT}/src/platform/gpiote/nrf_802154_gpiote_crit_sect.c
-    ${NRF_802154_SL_ROOT}/src/platform/hp_timer/nrf_802154_hp_timer.c
-    ${NRF_802154_SL_ROOT}/src/platform/lp_timer/nrf_802154_lp_timer.c
-    ${NRF_802154_SL_ROOT}/src/platform/clock/nrf_802154_clock_mpsl.c
-    ${NRF_802154_SL_ROOT}/src/platform/irq/nrf_802154_irq_baremetal.c
+    ${NRF_802154_SL_ROOT}/platform/gpiote/nrf_802154_gpiote_none.c
+    ${NRF_802154_SL_ROOT}/platform/gpiote/nrf_802154_gpiote_crit_sect.c
+    ${NRF_802154_SL_ROOT}/platform/hp_timer/nrf_802154_hp_timer.c
+    ${NRF_802154_SL_ROOT}/platform/lp_timer/nrf_802154_lp_timer.c
+    ${NRF_802154_SL_ROOT}/platform/clock/nrf_802154_clock_mpsl.c
+    ${NRF_802154_SL_ROOT}/platform/irq/nrf_802154_irq_baremetal.c
 )
 
 set(NRF_802154_SL_SOURCES_NRF53_PLATFORM_BAREMETAL
-    ${NRF_802154_SL_ROOT}/src/platform/gpiote/nrf_802154_gpiote_none.c
-    ${NRF_802154_SL_ROOT}/src/platform/gpiote/nrf_802154_gpiote_crit_sect.c
-    ${NRF_802154_SL_ROOT}/src/platform/lp_timer/nrf_802154_lp_timer.c
-    ${NRF_802154_SL_ROOT}/src/platform/clock/nrf_802154_clock_mpsl.c
-    ${NRF_802154_SL_ROOT}/src/platform/irq/nrf_802154_irq_baremetal.c
+    ${NRF_802154_SL_ROOT}/platform/gpiote/nrf_802154_gpiote_none.c
+    ${NRF_802154_SL_ROOT}/platform/gpiote/nrf_802154_gpiote_crit_sect.c
+    ${NRF_802154_SL_ROOT}/platform/lp_timer/nrf_802154_lp_timer.c
+    ${NRF_802154_SL_ROOT}/platform/clock/nrf_802154_clock_mpsl.c
+    ${NRF_802154_SL_ROOT}/platform/irq/nrf_802154_irq_baremetal.c
 )
 
 set(NRF_802154_SL_SOURCES_NRF52_PLATFORM_ZEPHYR
@@ -46,15 +46,6 @@ set(NRF_802154_SL_SOURCES_NRF53_PLATFORM_ZEPHYR
     ${NRF_802154_SL_ROOT}/platform/lp_timer/nrf_802154_lp_timer.c
     ${NRF_802154_SL_ROOT}/platform/clock/nrf_802154_clock_zephyr.c
     ${NRF_802154_SL_ROOT}/platform/irq/nrf_802154_irq_zephyr.c
-)
-
-set(NRF_802154_SL_SOURCES_PLATFORM_BAREMETAL
-    ${NRF_802154_SL_ROOT}/platform/gpiote/nrf_802154_gpiote_none.c
-    ${NRF_802154_SL_ROOT}/platform/gpiote/nrf_802154_gpiote_crit_sect.c
-    ${NRF_802154_SL_ROOT}/platform/hp_timer/nrf_802154_hp_timer.c
-    ${NRF_802154_SL_ROOT}/platform/lp_timer/nrf_802154_lp_timer.c
-    ${NRF_802154_SL_ROOT}/platform/clock/nrf_802154_clock_mpsl.c
-    ${NRF_802154_SL_ROOT}/platform/irq/nrf_802154_irq_baremetal.c
 )
 
 set(NRF_802154_SL_INCLUDE_DIRS
