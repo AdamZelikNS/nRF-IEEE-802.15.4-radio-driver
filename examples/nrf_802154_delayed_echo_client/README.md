@@ -1,38 +1,42 @@
-# nrf_802154_delayed_echo_client
+# nRF IEEE 802.15.4 Delayed Echo Client
 
-nrf_802154_delayed_echo_client sends a frame every two seconds and listens for a response
-in a 10 millisecond reception window scheduled one second after a successful transmission.
-This example application is designed to cooperate with nrf_802154_delayed_echo_server.  
+The delayed echo client example sends a frame every two seconds and listens for a response from the echo server in a 10 millisecond reception window scheduled one second after a successful transmission.
+This example application is designed to cooperate with the IEEE 802.15.4 delayed echo server located in `<repo-root>/examples/nrf_802154_delayed_echo_server`.
 
-## Build
+## Building
 
-Assuming build files have been generated (see top level README).
-Invoke build tool with the target name in your build directory, e.g. using `make`
- 
- ```bash
-make nrf_802154_delayed_echo_client
- ```
+1. Generate the build scripts using the `cmake` build system.
+    ```bash
+    mkdir build
+    cd build
+    cmake ..
+    ```
+    The above command will generate build files for `make`.
 
-## Flash
+2. Invoke build tool
+    ```bash
+    make
+    ```
 
-To flash created `.hex` file invoke `nrfjprog` from `build` directory.
-If there is only one nRF device use
+## Flashing
 
+Flash the created `.hex` file by building the `flash` target.
 ```bash
-nrfjprog -f NRF52 --program nrf_802154_delayed_echo_client/nrf_802154_delayed_echo_client.hex --chiperase --reset
+make flash
 ```
 
-Otherwise, use below command, replacing `<serial_number>` with target device serial number.
+If there are multiple development kits connected to the computer J-Link will display a GUI prompt requesting to select one of them.
 
-```bash
-nrfjprog -f NRF52 --program nrf_802154_delayed_echo_client/nrf_802154_delayed_echo_client.hex --chiperase --reset --snr <serial_number>
-```
+## Testing
 
-## Test
+1. Build and flash this example to nRF52840 development kit
+2. Build and flash the delayed echo server example to a second nRF52840 development kit
+3. Observe flashing LEDs on both kits resulting from echo exchanges
 
-LEDs: LED1 toggles when a successful frame transmission is completed , LED2 toggles when a frame
-is received.
+Device UI:
+* __LED1__: toggles when a successful frame transmission is completed
+* __LED2__: toggles when a frame is received
 
-Please note: transmitted frame is configured to require an acknowledgement.
+__Note__: Transmitted frames are configured to require an acknowledgement.
 
-Using sniffer: channel 11 is set, payload of every frame: "Nordic Semiconductor".
+The data traffic can be observed with a sniffer. The example transmits frames containing string `Nordic Semiconductor` as payload on channel 11.
