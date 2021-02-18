@@ -264,19 +264,28 @@ static uint8_t security_offset_get(const uint8_t * p_frame)
 
 static uint8_t key_id_size_get(const uint8_t * p_frame)
 {
-    switch (*nrf_802154_frame_parser_sec_ctrl_get(p_frame) & KEY_ID_MODE_MASK)
+    const uint8_t * p_sec_ctrl = nrf_802154_frame_parser_sec_ctrl_get(p_frame);
+
+    if (p_sec_ctrl == NULL)
     {
-        case KEY_ID_MODE_1:
-            return KEY_ID_MODE_1_SIZE;
+        return 0;
+    }
+    else
+    {
+        switch (*p_sec_ctrl & KEY_ID_MODE_MASK)
+        {
+            case KEY_ID_MODE_1:
+                return KEY_ID_MODE_1_SIZE;
 
-        case KEY_ID_MODE_2:
-            return KEY_ID_MODE_2_SIZE;
+            case KEY_ID_MODE_2:
+                return KEY_ID_MODE_2_SIZE;
 
-        case KEY_ID_MODE_3:
-            return KEY_ID_MODE_3_SIZE;
+            case KEY_ID_MODE_3:
+                return KEY_ID_MODE_3_SIZE;
 
-        default:
-            return 0;
+            default:
+                return 0;
+        }
     }
 }
 

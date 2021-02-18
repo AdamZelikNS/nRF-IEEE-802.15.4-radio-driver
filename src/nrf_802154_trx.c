@@ -646,6 +646,7 @@ static void rx_automatic_antenna_handle(void)
  */
 static void rx_antenna_update(void)
 {
+    //                           coverity[set_but_not_used]
     bool                         result = true;
     nrf_802154_sl_ant_div_mode_t mode   = nrf_802154_sl_ant_div_cfg_mode_get(
         NRF_802154_SL_ANT_DIV_OP_RX);
