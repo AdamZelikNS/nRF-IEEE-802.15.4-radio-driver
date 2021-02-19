@@ -2482,7 +2482,7 @@ bool nrf_802154_core_transmit(nrf_802154_term_t              term_lvl,
                 state_set(cca ? RADIO_STATE_CCA_TX : RADIO_STATE_TX);
                 mp_tx_data = p_data;
 
-                // coverity[returned_value]
+                // coverity[check_return]
                 result = tx_init(p_data, cca);
                 if (immediate)
                 {
