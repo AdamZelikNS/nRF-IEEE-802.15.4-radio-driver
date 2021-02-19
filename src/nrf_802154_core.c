@@ -2483,6 +2483,7 @@ bool nrf_802154_core_transmit(nrf_802154_term_t              term_lvl,
                 mp_tx_data = p_data;
 
                 result = tx_init(p_data, cca);
+                (void)result; // suppress false positive of static analysis
                 if (immediate)
                 {
                     if (!result)
@@ -2493,7 +2494,6 @@ bool nrf_802154_core_transmit(nrf_802154_term_t              term_lvl,
                 }
                 else
                 {
-                    (void)result; // suppress false positive of static analysis
                     result = true;
                 }
             }
