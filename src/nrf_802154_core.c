@@ -2126,8 +2126,8 @@ static bool ack_match_check_version_2(const uint8_t * p_tx_data, const uint8_t *
     bool                               parse_result;
 
     parse_result = nrf_802154_frame_parser_mhr_parse(p_tx_data, &tx_mhr_data);
-    (void)parse_result; // suppress false positive of static analysis
     assert(parse_result);
+    (void)parse_result; // suppress false positive of static analysis
     parse_result = nrf_802154_frame_parser_mhr_parse(p_ack_data, &ack_mhr_data);
 
     if (!parse_result ||
